@@ -1,0 +1,76 @@
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto Mono", serif;
+}
+
+$custom-primary: (
+  50: #e3f2fd,
+  100: #bbdefb,
+  200: #90caf9,
+  300: #64b5f6,
+  400: #42a5f5,
+  500: #4B8BC2,
+  // Principal
+  600: #1e88e5,
+  700: #1976d2,
+  800: #1565c0,
+  900: #0d47a1,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff)
+);
+
+$custom-accent: (
+  50: #e3e5e9,
+  100: #b8bbc8,
+  200: #8a8eaa,
+  300: #5c628c,
+  400: #3a416f,
+  500: #2E313B,
+  // Principal
+  600: #282a35,
+  700: #20222d,
+  800: #191a26,
+  900: #0d0d18,
+  contrast: (50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff)
+);
+
+
+// Define your custom primary and accent colors
+$custom-primary: mat.define-palette($custom-primary);
+$custom-accent: mat.define-palette($custom-accent);
+
+// Define the theme
+$custom-theme: mat.define-light-theme((color: (primary: $custom-primary,
+        accent: $custom-accent,
+      )));
+
+// Apply the theme to all components
+@include mat.all-component-themes($custom-theme);
+
+
+
