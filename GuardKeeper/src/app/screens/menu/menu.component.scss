@@ -1,0 +1,114 @@
+
+.drawer-container {
+  width: 100%;
+  height: 100%;
+}
+
+.drawer {
+  width: 18%;
+  min-width: 200px;
+}
+
+.image-logo {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  background-color: #4B8BC2;
+  align-items: center; // vertical
+
+  img {
+    height: 90%;
+    padding: 5px;
+    align-self: center;
+    }
+
+  .name-logo {
+    margin-top: 1vh;
+    font-size: clamp(20px, 5vw, 25px);
+    text-align: center;
+    font-family: "Goldman", serif;
+    font-weight: 700;
+    color: #E7E9EF
+  }
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0px 2px;
+}
+
+.toolbar {
+  height: 60px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+.mat-button-toggle-group {
+  display: flex;
+  flex-direction: column;
+  border: 0px solid;
+  border-radius: 0px;
+
+  .mat-button-toggle {
+    align-self: start;
+    width: 100%;
+    font-family: "Roboto Mono", serif;
+    color: #2E313B;
+    font-size: medium;
+
+  }
+
+  .mat-button-toggle-checked {
+    border-radius: 0px;
+    border-left: 4px solid #4B8BC2 !important;
+  }
+}
+
+::ng-deep .mat-button-toggle-button {
+  display: flex;
+}
+
+::ng-deep .mat-button-toggle-label-content {
+  padding: 5px;
+  align-self: start;
+}
+
+@media (max-width: 500px) {
+  .drawer {
+    width: 50%;
+  }
+}
+
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
