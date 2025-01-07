@@ -74,3 +74,16 @@ $custom-theme: mat.define-light-theme((color: (primary: $custom-primary,
 
 
 
+:root {
+  --primary-color: #4B8BC2;
+  --secondary-color: #2E313B;
+
+  --text-primary-color: #E7E9EF;
+  --text-secondary-color: #4B8BC2;
+
+  --border-primary-color: #E7E9EF;
+  --border-secondary-color: #4B8BC2;
+
+  --background-color: #E7E9EF;
+
+}
