@@ -45,14 +45,16 @@
 
 
 
+
   .user-avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    border-radius: 10%;
     overflow: hidden;
     flex-shrink: 0;
-      /* Evita encolhimento */
-      margin-right: 10px;
+    /* Evita encolhimento */
+    margin-right: 10px;
+
     img {
       width: 100%;
       height: 100%;
@@ -60,46 +62,70 @@
     }
   }
 
-  .user-info {
-    width: max-content;
 
-    h3 {
-      font-family: "Goldman", serif;
-      font-weight: 700;
-      color: var(--secondary-color);
-      font-size: clamp(25px, 5vw, 30px);
-      margin: 0;
-    }
+  mat-card-title {
+
+    font-family: "Goldman", serif;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: clamp(25px, 5vw, 30px);
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  mat-card-content {
+    flex-grow: 1;
+    /* Faz o conteúdo ocupar o espaço disponível */
+    display: flex;
+    /* Ativa o Flexbox */
+    flex-direction: row;
+    /* Alinha os itens em linha */
+    align-items: flex-end;
+    /* Alinha tudo na parte de baixo */
+    justify-content: space-between;
+    /* Espaço entre os itens */
   }
 
   .content-container {
     display: flex;
-    justify-content: space-between;
-    /* Alinha texto e botão */
-    align-items: center;
-    /* Centraliza verticalmente */
-  }
+    flex-grow: 1;
+    flex-direction: row;
 
-  .text-container {
-    padding-top: 18px;
-    display: flex;
-    flex-direction: column;
-    /* Organiza os textos em coluna */
-    gap: 8px;
-    /* Espaço entre os textos */
-  }
 
-  .name,
-  .category,
-  .rank,
-  .unit {
-    display: flex;
-    align-items: center;
-    font-family: 'Roboto Mono', serif;
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    color: var(--secondary-color);
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      /* Organiza os textos em coluna */
+      gap: 8px;
+      /* Espaço entre os textos */
+    }
+
+    .name,
+    .category,
+    .rank,
+    .unit,
+    .gender {
+      display: flex;
+      align-items: center;
+      font-family: 'Roboto Mono', serif;
+      font-size: 14px;
+      font-weight: bold;
+      font-style: italic;
+      color: var(--secondary-color);
+
+    }
+
+    .maleIcon {
+      color: rgb(26, 26, 199);
+    }
+
+    .femaleIcon {
+      color: rgb(210, 60, 170);
+    }
+
 
     mat-icon {
       color: var(--primary-color);
@@ -107,18 +133,20 @@
       /* Cor personalizada */
     }
 
-  }
+    .edit-icon {
+      display: flex;
+      justify-content: flex-end;
+      align-items: end;
+      /* Alinha o botão à direita */
 
-  .edit-icon {
-    display: flex;
-    justify-content: flex-end;
-    /* Alinha o botão à direita */
+      mat-icon {
+        color: var(--secondary-color);
 
-    mat-icon {
-      color: var(--secondary-color);
-
+      }
     }
   }
+
+
 
 }
 

@@ -16,36 +16,44 @@
   <mat-card *ngFor="let agent of filteredAgents" class="cards" appearance="raised">
 
     <mat-card-header>
-      <div class="user-avatar">
-        <img [src]="'../../../assets/soldado.jpeg'" alt="Foto do agente" />
-      </div>
-      <div class="user-info">
-        <h3>{{agent.name }}, {{agent.age}}</h3>
-      </div>
+      <mat-card-title>{{agent.name }}, {{agent.age}} </mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
       <div class="content-container">
 
+        <div class="user-avatar">
+          <img *ngIf="agent.gender =='Masculino'" [src]="'../../../assets/soldado.jpeg'" alt="Foto do agente" />
+          <img *ngIf="agent.gender =='Feminino'" [src]="'../../../assets/soldada.jpeg'" alt="Foto do agente" />
+        </div>
+
         <!-- Informações do agente -->
         <div class="text-container">
-
           <!-- Categoria (Civil ou Militar) -->
           <div class="category">
             <mat-icon>badge</mat-icon> {{ agent.category }}
           </div>
+
+            <div class="gender" *ngIf="agent.gender =='Masculino'">
+              <mat-icon class="maleIcon" >male</mat-icon> {{ agent.gender }}
+            </div>
+            <div class="gender" *ngIf="agent.gender =='Feminino'">
+              <mat-icon class="femaleIcon">female</mat-icon> {{ agent.gender }}
+            </div>
+
           <!-- Posto ou Graduação -->
           <div *ngIf="agent.rank" class="rank">
             <mat-icon>military_tech</mat-icon> {{ agent.rank }}: {{ agent.unit }}
           </div>
-
+          <!-- Botão de edição -->
+          <div class="edit-icon">
+            <button mat-icon-button color="accent">
+              <mat-icon>edit_document</mat-icon>
+            </button>
+          </div>
         </div>
 
-        <!-- Botão de edição -->
-        <div class="edit-icon">
-          <button mat-icon-button color="accent">
-            <mat-icon>edit_document</mat-icon>
-          </button>
-        </div>
+
       </div>
     </mat-card-content>
   </mat-card>

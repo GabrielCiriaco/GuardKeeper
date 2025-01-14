@@ -4,6 +4,8 @@ import { LoginComponent } from './screens/login/login.component';
 import { MenuComponent } from './screens/menu/menu.component';
 import { AgentsComponent } from './screens/agents/agents.component';
 import { PlacesComponent } from './screens/places/places.component';
+import { ScheduleComponent } from './screens/schedule/schedule.component';
+import { SetsScheduleComponent } from './screens/schedule/sets-schedule/sets-schedule.component';
 
 const routes: Routes = [
   {
@@ -33,6 +35,15 @@ const routes: Routes = [
         path: 'places',
         component: PlacesComponent,
         // canActivate: [authGuard],
+      },
+      {
+        path: 'schedules',
+        component: ScheduleComponent,
+        // canActivate: [authGuard],
+      },
+      {
+        path: 'schedules/:location',
+        component: SetsScheduleComponent
       },
 
     ]

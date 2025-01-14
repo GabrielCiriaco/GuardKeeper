@@ -1,0 +1,58 @@
+<h1 class="page-title"> Gerenciar Escalas </h1>
+
+
+
+<mat-form-field class="search-bar" appearance="outline">
+  <mat-label>Pesquisar</mat-label>
+  <input matInput [formControl]="searchPlace" placeholder="Nome do local" />
+  <mat-icon matPrefix class="std_gray">search</mat-icon>
+</mat-form-field>
+
+<div *ngIf="loadingPlaces" class="loading-spinner">
+  <mat-spinner diameter="80" strokeWidth="10" color="primary"></mat-spinner>
+</div>
+
+<div class="cards-container">
+  <mat-card *ngFor="let place of filteredPlaces" class="cards" appearance="raised">
+    <!-- Cabeçalho com o nome do local -->
+    <mat-card-header>
+      <mat-card-title>Escala {{ place.name }}</mat-card-title>
+    </mat-card-header>
+
+    <!-- Conteúdo do card -->
+    <mat-card-content>
+      <div class="content-container">
+        <!-- Textos -->
+        <div class="text-container">
+
+          <!-- Número de guardas -->
+          <div class="guards">
+            <mat-icon>group</mat-icon> {{ place.agentsNeededPerScale }} Guardas
+          </div>
+
+          <!-- Valor por hora -->
+          <!-- <div class="price">
+            <mat-icon>attach_money</mat-icon> R${{ place.agentHourValue }}
+          </div> -->
+
+          <!-- Endereço -->
+          <div class="address">
+            <mat-icon>location_on</mat-icon> {{ formatAddress(place) }}
+          </div>
+        </div>
+
+        <!-- Botão de edição -->
+        <div class="edit-icon">
+          <button mat-icon-button color="accent" (click)="setSchedule(place)">
+            <mat-icon>calendar_month</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<div style="height: 60px;"></div>
+
+
