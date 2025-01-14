@@ -1,0 +1,137 @@
+<h1 class="page-title">{{placeInfo?.name}}</h1>
+
+<div class="place-info">
+
+  <!-- Última Escala -->
+  <mat-card>
+    <mat-card-title>Última Escala:</mat-card-title>
+    <mat-card-content>
+      <mat-icon>event_available</mat-icon>
+      <div>
+        <p class="card-detail">24/12/2024</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Agentes Necessários por Escala -->
+  <mat-card>
+    <mat-card-title>Agentes:</mat-card-title>
+    <mat-card-content>
+      <mat-icon>group</mat-icon>
+      <div>
+        <p class="card-detail">{{ placeInfo?.agentsNeededPerScale }} Agentes</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+
+  <!-- Valor por Hora -->
+  <mat-card>
+    <mat-card-title>Valor/Hora:</mat-card-title>
+    <mat-card-content>
+      <mat-icon>monetization_on</mat-icon>
+      <div>
+        <p class="card-detail"> R$ {{ placeInfo?.agentHourValue }},00</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Endereço -->
+  <mat-card>
+    <mat-card-title>Endereço:</mat-card-title>
+    <mat-card-content>
+      <mat-icon>location_on</mat-icon>
+      <div>
+        <p class="card-adress">{{placeInfo?.city}} - {{ placeInfo?.neighborhood }}</p>
+        <p class="card-adress">{{ placeInfo?.street }}, Nº {{ placeInfo?.number }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<h2 class="title-calendar">Datas das escalas</h2>
+
+
+  <div class="calendar-container">
+    <mat-calendar [dateClass]="dateClass" (selectedChange)="selectDay($event)">
+    </mat-calendar>
+  </div>
+
+
+
+<div class="search-and-selected-agents">
+  <div class="search-container">
+    <mat-card class="agent-area">
+      <form [formGroup]="searchAgentForm">
+
+        <mat-form-field class="search-bar" appearance="outline">
+          <mat-label>Pesquisar Agente</mat-label>
+          <input matInput formControlName="searchAgent" placeholder="Nome do agente">
+          <mat-icon matPrefix color="primary">search</mat-icon>
+
+        </mat-form-field>
+
+        <mat-form-field class="search-bar" appearance="outline">
+          <mat-label>Categoria</mat-label>
+          <mat-select formControlName="category">
+            <mat-option>Todos</mat-option>
+            <mat-option value="Militar">Militar</mat-option>
+            <mat-option value="Civil">Civil</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
+
+      <div class="agent-list">
+        <mat-list role="list">
+          <mat-list-item *ngFor="let agent of filteredAgents" role="listitem">
+            <mat-card class="agent-card">
+
+              <div class="user-avatar">
+                <img src="../../../assets/pessoa_icone.svg" alt="Imagem do usuário" />
+              </div>
+              <div class="user-details">
+                <p>
+                  {{ agent.name }} - {{ agent.category }}
+                </p>
+              </div>
+              <button mat-icon-button color="primary" (click)="addToSchedule(agent)">
+                <mat-icon>add</mat-icon>
+              </button>
+
+            </mat-card>
+
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="search-container">
+    <mat-card class="agent-area">
+      <h3 class="title-card-selected-agents">Agentes na Escala:</h3>
+      <div class="agent-list">
+        <mat-list role="list">
+          <mat-list-item *ngFor="let agent of scheduledAgents" role="listitem">
+            <mat-card class="agent-card">
+
+              <div class="user-avatar">
+                <img src="../../../assets/pessoa_icone.svg" alt="Imagem do usuário" />
+              </div>
+              <div class="user-details">
+                <p>
+                  {{ agent.name }} - {{ agent.category }}
+                </p>
+              </div>
+            <button mat-icon-button color="warn" (click)="removeFromSchedule(agent)">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+            </mat-card>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card>
+  </div>
+

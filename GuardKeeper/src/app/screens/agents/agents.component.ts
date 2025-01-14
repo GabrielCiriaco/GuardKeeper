@@ -27,16 +27,16 @@ export class AgentsComponent implements OnInit {
     this.loadingAgents = true;
     this.agentsService.getAgents().subscribe(
       (agents: Array<Agent>) => {
-        this.loadingAgents= false;
+        this.loadingAgents = false;
         console.log(agents)
         this.agents = agents;
         this.filteredAgents = agents;
       }
     )
-    this.filterPlaces()
+    this.filterAgents()
   }
 
-  filterPlaces() {
+  filterAgents() {
     this.searchAgent.valueChanges.subscribe(
       (search: string) => {
         this.filteredAgents = this.agents.filter(
@@ -44,6 +44,5 @@ export class AgentsComponent implements OnInit {
         )
       })
   }
-
 
 }

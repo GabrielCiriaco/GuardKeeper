@@ -1,7 +1,7 @@
 
   <mat-drawer-container class="drawer-container">
 
-    <mat-drawer #drawer class="drawer" [mode]="drawerMode" >
+    <mat-drawer #drawer class="drawer"  [mode]="drawerMode" >
 
         <div class="image-logo">
           <img  src="../../../assets/logoGK.png" alt="" />
@@ -16,7 +16,7 @@
             Relatórios
           </mat-button-toggle>
 
-          <mat-button-toggle [checked]="selectedMenuOption == 2 ? true : false" value="menu/agents">
+          <mat-button-toggle [checked]="selectedMenuOption == 2 ? true : false" value="menu/schedules">
             <mat-icon matPrefix >event_upcoming</mat-icon>
             Escalas
           </mat-button-toggle>

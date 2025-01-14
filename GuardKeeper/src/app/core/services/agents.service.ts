@@ -16,6 +16,7 @@ export class AgentsService {
             id: 1,
             photo: '../../../assets/carlos-mendes.jpg',
             name: 'Carlos Mendes',
+            gender: 'Masculino',
             age: 35,
             contact: '11999999999',
             emergencyContact: '11988888888',
@@ -27,6 +28,7 @@ export class AgentsService {
             id: 2,
             photo: '../../../assets/joao-silva.jpg',
             name: 'João Silva',
+            gender: 'Masculino',
             age: 40,
             contact: '11977777777',
             emergencyContact: '11966666666',
@@ -36,6 +38,7 @@ export class AgentsService {
             id: 3,
             photo: '../../../assets/ana-oliveira.jpg',
             name: 'Ana Oliveira',
+            gender: 'Feminino',
             age: 29,
             contact: '11955555555',
             emergencyContact: '11944444444',
@@ -47,6 +50,7 @@ export class AgentsService {
             id: 4,
             photo: '../../../assets/fernando-rocha.jpg',
             name: 'Fernando Rocha',
+            gender: 'Masculino',
             age: 33,
             contact: '11933333333',
             emergencyContact: '11922222222',
@@ -56,6 +60,7 @@ export class AgentsService {
             id: 5,
             photo: '../../../assets/mariana-souza.jpg',
             name: 'Mariana Souza',
+            gender: 'Feminino',
             age: 27,
             contact: '11911111111',
             emergencyContact: '11900000000',
@@ -63,6 +68,6 @@ export class AgentsService {
             rank: 'Soldado',
             unit: '4º BPM Barra',
           }
-        ]).pipe(delay(2000));
+        ]).pipe(delay(1000));
     }
 }
