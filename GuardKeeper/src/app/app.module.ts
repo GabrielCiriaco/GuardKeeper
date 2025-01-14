@@ -9,6 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './screens/login/login.component';
 import { MenuComponent } from './screens/menu/menu.component';
+import { AgentsComponent } from './screens/agents/agents.component';
+import { PlacesComponent } from './screens/places/places.component';
+import { EditPlacesComponent } from './screens/places/edit-places/edit-places.component';
+import { AddPlacesComponent } from './screens/places/add-places/add-places.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,8 +22,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-import { AgentsComponent } from './screens/agents/agents.component';
-import { PlacesComponent } from './screens/places/places.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,9 @@ import { PlacesComponent } from './screens/places/places.component';
     LoginComponent,
     MenuComponent,
     AgentsComponent,
-    PlacesComponent
+    PlacesComponent,
+    EditPlacesComponent,
+    AddPlacesComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +53,8 @@ import { PlacesComponent } from './screens/places/places.component';
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatCardModule,
+    MatProgressSpinnerModule
 
 
   ],

@@ -1,1 +1,60 @@
-<p>agents works!</p>
+<H1 class="page-title"> Gerenciar Agentes </H1>
+
+
+
+<mat-form-field class="search-bar" appearance="outline">
+  <mat-label>Pesquisar</mat-label>
+  <input matInput [formControl]="searchAgent" placeholder="Nome do agente" />
+  <mat-icon matPrefix class="std_gray">search</mat-icon>
+</mat-form-field>
+
+<div *ngIf="loadingAgents" class="loading-spinner">
+  <mat-spinner diameter="80" strokeWidth="10" color="primary"></mat-spinner>
+</div>
+
+<div class="cards-container">
+  <mat-card *ngFor="let agent of filteredAgents" class="cards" appearance="raised">
+
+    <mat-card-header>
+      <div class="user-avatar">
+        <img [src]="'../../../assets/soldado.jpeg'" alt="Foto do agente" />
+      </div>
+      <div class="user-info">
+        <h3>{{agent.name }}, {{agent.age}}</h3>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="content-container">
+
+        <!-- Informações do agente -->
+        <div class="text-container">
+
+          <!-- Categoria (Civil ou Militar) -->
+          <div class="category">
+            <mat-icon>badge</mat-icon> {{ agent.category }}
+          </div>
+          <!-- Posto ou Graduação -->
+          <div *ngIf="agent.rank" class="rank">
+            <mat-icon>military_tech</mat-icon> {{ agent.rank }}: {{ agent.unit }}
+          </div>
+
+        </div>
+
+        <!-- Botão de edição -->
+        <div class="edit-icon">
+          <button mat-icon-button color="accent">
+            <mat-icon>edit_document</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<div style="height: 60px;"></div>
+
+<!-- Botão Flutuante no Canto Inferior Direito -->
+<button mat-fab color="primary" class="floating-button">
+  <mat-icon>add</mat-icon>
+</button>

@@ -30,6 +30,8 @@ export class MenuComponent {
 
     this.menuService.obterVariavel().subscribe((valor:number) => {
       this.selectedMenuOption = valor;
+      console.log('Valor recebido: ', valor);
+
       this.cdr.detectChanges();
     });
   }
