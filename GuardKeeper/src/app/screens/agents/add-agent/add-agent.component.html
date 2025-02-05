@@ -1,0 +1,73 @@
+<mat-icon class="return-icon">arrow_back_two_tone_icon</mat-icon>
+<h1 class="page-title">Adicionar Agente</h1>
+
+<form class="form-add-agent" [formGroup]="addAgentForm">
+  <div class="form-grid">
+    <!-- Nome -->
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" placeholder="Nome do agente" required />
+    </mat-form-field>
+
+    <!-- Foto -->
+    <div class="photo-upload half-width">
+      <label for="photo-input" class="photo-label">Carregar Foto</label>
+      <input  id="photo-input" type="file" accept="image/*" (change)="onPhotoSelected($event)" />
+      <div class="photo-preview" *ngIf="photoPreview">
+        <img [src]="photoPreview" alt="Foto do Agente" />
+      </div>
+    </div>
+
+    <!-- Gênero -->
+    <mat-form-field appearance="outline" class="small-width" floatLabel="always">
+      <mat-label>Gênero</mat-label>
+      <mat-select formControlName="gender" required>
+        <mat-option value="Masculino">Masculino</mat-option>
+        <mat-option value="Feminino">Feminino</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Idade -->
+    <mat-form-field appearance="outline" class="small-width" floatLabel="always">
+      <mat-label>Idade</mat-label>
+      <input matInput type="number" formControlName="age" placeholder="Idade" required />
+    </mat-form-field>
+
+    <!-- Contato -->
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Contato</mat-label>
+      <input matInput formControlName="contact" placeholder="Contato principal" required />
+    </mat-form-field>
+
+    <!-- Contato de Emergência -->
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Contato de Emergência</mat-label>
+      <input matInput formControlName="emergencyContact" placeholder="Contato de emergência" />
+    </mat-form-field>
+
+    <!-- Categoria -->
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="category" (selectionChange)="onCategoryChange($event)" required>
+        <mat-option value="Militar">Militar</mat-option>
+        <mat-option value="Civil">Civil</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Posto ou Graduação -->
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Posto/Graduação</mat-label>
+      <input matInput formControlName="rank" placeholder="Posto ou Graduação" [disabled]="isCivil" />
+    </mat-form-field>
+
+    <!-- Unidade -->
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Unidade</mat-label>
+      <input matInput formControlName="unit" placeholder="Unidade" [disabled]="isCivil" />
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" class="add-button" (click)="addAgent()" [disabled]="!addAgentForm.valid">
+    Adicionar
+  </button>
+</form>

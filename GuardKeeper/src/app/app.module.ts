@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -32,7 +33,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { EditAgentComponent } from './screens/agents/edit-agent/edit-agent.component';
+import { AddAgentComponent } from './screens/agents/add-agent/add-agent.component'
 
 
 
@@ -47,7 +50,9 @@ import { MatSelectModule } from '@angular/material/select'
     EditPlacesComponent,
     AddPlacesComponent,
     ScheduleComponent,
-    SetsScheduleComponent
+    SetsScheduleComponent,
+    EditAgentComponent,
+    AddAgentComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,7 @@ import { MatSelectModule } from '@angular/material/select'
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
+    CurrencyMaskModule,
     ReactiveFormsModule,
 
     MatButtonModule,
