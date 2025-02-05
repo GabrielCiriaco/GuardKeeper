@@ -1,1 +1,51 @@
-<p>add-places works!</p>
+
+  <mat-icon (click)="return()" class="return-icon">arrow_back_two_tone_icon</mat-icon>
+  <h1 class="page-title"> Adicionar Local </h1>
+
+
+<form class="form-add-place" [formGroup]="addPlaceForm">
+  <div class="form-grid">
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Nome do Local</mat-label>
+      <input matInput formControlName="name" placeholder="Nome do local" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="half-width" floatLabel="always">
+      <mat-label>Cidade</mat-label>
+      <input matInput formControlName="city" placeholder="Cidade" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="small-width" floatLabel="always">
+      <mat-label>Bairro</mat-label>
+      <input matInput formControlName="neighborhood" placeholder="Bairro" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="small-width" floatLabel="always">
+      <mat-label>Rua</mat-label>
+      <input matInput formControlName="street" placeholder="Rua" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="small-width" floatLabel="always">
+      <mat-label>Número</mat-label>
+      <input matInput type="number" formControlName="number" placeholder="Número" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="small-width" floatLabel="always">
+      <mat-label>Valor por hora</mat-label>
+      <input matInput currencyMask [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }"
+        formControlName="agentHourValue" placeholder="Valor por hora" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="small-width" floatLabel="always">
+      <mat-label>Nro. Guardas</mat-label>
+      <input matInput type="number" formControlName="agentsNeededPerScale" placeholder="Nro. Guardas"
+        required />
+    </mat-form-field>
+  </div>
+
+
+    <button mat-raised-button color="primary" class="add-button" (click)="addPlace()" [disabled]="!addPlaceForm.valid">
+      Adicionar
+    </button>
+
+</form>

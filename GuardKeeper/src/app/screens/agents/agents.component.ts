@@ -4,6 +4,7 @@ import { MenuService } from 'src/app/core/services/menu.service';
 
 import { Agent } from 'src/app/core/models';
 import { AgentsService } from 'src/app/core/services/agents.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agents',
@@ -19,7 +20,8 @@ export class AgentsComponent implements OnInit {
 
   constructor(
     private menuService: MenuService,
-    private agentsService: AgentsService
+    private agentsService: AgentsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -44,5 +46,15 @@ export class AgentsComponent implements OnInit {
         )
       })
   }
+
+    addAgent() {
+      this.router.navigate(['/menu/agents/add'])
+    }
+
+    editAgent(Agent: Agent) {
+      this.router.navigate(['/menu/agents/edit'],{
+        state: Agent
+      })
+    }
 
 }

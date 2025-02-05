@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Place } from 'src/app/core/models';
 import { MenuService } from 'src/app/core/services/menu.service';
 import { PlacesService } from 'src/app/core/services/places.service';
@@ -18,7 +19,8 @@ export class PlacesComponent implements OnInit {
 
   constructor(
     private menuService: MenuService,
-    private placesService: PlacesService
+    private placesService: PlacesService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -48,5 +50,14 @@ export class PlacesComponent implements OnInit {
       })
   }
 
+  addPlace() {
+    this.router.navigate(['/menu/places/add'])
+  }
+
+  editPlace(place: Place) {
+    this.router.navigate(['/menu/places/edit'],{
+      state: place
+    })
+  }
 
 }
