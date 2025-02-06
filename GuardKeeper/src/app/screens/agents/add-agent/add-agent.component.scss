@@ -26,6 +26,62 @@
 
 }
 
+.photo-upload {
+
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .photo-preview-circle {
+
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #ccc;
+      cursor: pointer;
+
+      img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+    }
+
+    .circle-icon {
+      position: relative;
+      top: -50px;
+      left: 80px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+
+      mat-icon{
+        color: var(--background-color);
+      }
+    }
+
+    /* Animação ao clicar */
+    .circle-icon:active {
+      transform: scale(0.95);
+      /* Reduz o tamanho ligeiramente */
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+      /* Reduz a sombra */
+    }
+
+
+}
+
+
+
+
 
 .form-add-agent {
   padding: 0 30px;
@@ -127,8 +183,8 @@ mat-form-field {
     /* 1 coluna no mobile */
   }
 
-  .form-add-place {
-    margin: 0 20px;
+  .form-add-agent {
+    margin: 0 auto;
   }
 
   .full-width,

@@ -22,6 +22,9 @@ export class AddAgentComponent {
   photoPreview: string | ArrayBuffer | null = null;
   isCivil = true; // Indica se a categoria é Civil
 
+  constructor(private router: Router) {
+
+  }
   // Atualiza o estado dos campos rank e unit
   onCategoryChange(event: any) {
     this.isCivil = event.value === 'Civil';
@@ -72,5 +75,12 @@ export class AddAgentComponent {
     } else {
       console.error('Formulário inválido');
     }
+  }
+
+
+  return() {
+
+    this.router.navigate(['menu/places']);
+
   }
 }

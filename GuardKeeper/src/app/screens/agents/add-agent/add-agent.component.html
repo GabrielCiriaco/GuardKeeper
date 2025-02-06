@@ -1,5 +1,28 @@
-<mat-icon class="return-icon">arrow_back_two_tone_icon</mat-icon>
+<mat-icon (click)="return()" class="return-icon">arrow_back_two_tone_icon</mat-icon>
 <h1 class="page-title">Adicionar Agente</h1>
+
+
+    <!-- Foto -->
+    <div class="photo-upload">
+      <!-- Input de arquivo oculto -->
+      <input id="photo-input" type="file" accept="image/*" (change)="onPhotoSelected($event)" hidden />
+
+      <!-- Imagem de perfil -->
+      <div class="photo-preview-circle">
+        <img [src]="photoPreview || '../../../assets/add-image.png'" alt="Imagem do usuário" />
+      </div>
+
+      <!-- Botão de edição -->
+      <label for="photo-input" >
+        <div class="circle-icon">
+          <mat-icon>edit</mat-icon>
+
+        </div>
+      </label>
+    </div>
+
+
+
 
 <form class="form-add-agent" [formGroup]="addAgentForm">
   <div class="form-grid">
@@ -9,14 +32,7 @@
       <input matInput formControlName="name" placeholder="Nome do agente" required />
     </mat-form-field>
 
-    <!-- Foto -->
-    <div class="photo-upload half-width">
-      <label for="photo-input" class="photo-label">Carregar Foto</label>
-      <input  id="photo-input" type="file" accept="image/*" (change)="onPhotoSelected($event)" />
-      <div class="photo-preview" *ngIf="photoPreview">
-        <img [src]="photoPreview" alt="Foto do Agente" />
-      </div>
-    </div>
+
 
     <!-- Gênero -->
     <mat-form-field appearance="outline" class="small-width" floatLabel="always">
