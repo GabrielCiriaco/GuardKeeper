@@ -1,0 +1,195 @@
+.page-title {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  font-family: "Goldman", serif;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: clamp(30px, 5vw, 50px);
+}
+
+
+.return-icon {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 5px;
+  font-size: 32px;
+  cursor: pointer;
+  color: var(--secondary-color);
+  height: fit-content;
+  width: 40px;
+}
+
+.return-icon:hover {
+  transition: 0.8s;
+  color: var(--primary-color);
+
+}
+
+.photo-upload {
+
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .photo-preview-circle {
+
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ccc;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .circle-icon {
+    position: relative;
+    top: -50px;
+    left: 80px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+
+    mat-icon {
+      color: var(--background-color);
+    }
+  }
+
+  /* Animação ao clicar */
+  .circle-icon:active {
+    transform: scale(0.95);
+    /* Reduz o tamanho ligeiramente */
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    /* Reduz a sombra */
+  }
+
+
+}
+
+
+
+
+
+.form-add-agent {
+  padding: 0 30px;
+  margin: 0 15%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.add-button {
+  margin: 20px 0;
+  width: 100%;
+  align-self: center;
+  color: var(--text-primary-color) !important;
+}
+
+::ng-deep .mdc-text-field--focused .mdc-floating-label {
+  color: var(--primary-color) !important;
+}
+
+::ng-deep .mdc-text-field .mdc-floating-label {
+  color: var(--primary-color) !important;
+}
+
+::ng-deep .mdc-text-field .mdc-text-field__input {
+  color: var(--primary-color) !important;
+}
+
+::ng-deep .mdc-text-field .mdc-text-field__input::placeholder {
+  color: rgba(75, 139, 194, 0.4) !important;
+
+}
+
+::ng-deep .mdc-text-field--outlined.mdc-text-field .mdc-notched-outline__leading,
+::ng-deep .mdc-text-field--outlined.mdc-text-field .mdc-notched-outline__notch,
+::ng-deep .mdc-text-field--outlined.mdc-text-field .mdc-notched-outline__trailing {
+  border-color: var(--primary-color) !important;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 colunas */
+  gap: 20px;
+  /* Espaçamento entre os campos */
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+/* Campos maiores ocupam mais espaço */
+.full-width {
+  margin-bottom: -1.25em;
+  grid-column: span 4;
+  /* Ocupa todas as colunas */
+}
+
+.half-width {
+  margin-bottom: -1.25em;
+  grid-column: span 2;
+  /* Ocupa 2 colunas */
+}
+
+.small-width {
+  margin-bottom: -1.25em;
+  grid-column: span 1;
+  /* Ocupa 1 coluna */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 colunas */
+  }
+
+  .full-width {
+    grid-column: span 2;
+    /* Ocupa todas as colunas do grid menor */
+  }
+
+  .half-width {
+    grid-column: span 1;
+    /* Ocupa 1 coluna */
+  }
+
+  .small-width {
+    grid-column: span 1;
+    /* Mantém o tamanho menor */
+  }
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    /* 1 coluna no mobile */
+  }
+
+  .form-add-agent {
+    margin: 0 auto;
+  }
+
+  .full-width,
+  .small-width {
+    grid-column: span 1;
+    /* Cada campo ocupa toda a largura */
+  }
+}

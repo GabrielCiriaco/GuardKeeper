@@ -35,7 +35,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { EditAgentComponent } from './screens/agents/edit-agent/edit-agent.component';
-import { AddAgentComponent } from './screens/agents/add-agent/add-agent.component'
+import { AddAgentComponent } from './screens/agents/add-agent/add-agent.component';
+import { ReportComponent } from './screens/report/report.component'
 
 
 
@@ -52,7 +53,8 @@ import { AddAgentComponent } from './screens/agents/add-agent/add-agent.componen
     ScheduleComponent,
     SetsScheduleComponent,
     EditAgentComponent,
-    AddAgentComponent
+    AddAgentComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { SetsScheduleComponent } from './screens/schedule/sets-schedule/sets-sch
 import { EditPlacesComponent } from './screens/places/edit-places/edit-places.component';
 import { AddAgentComponent } from './screens/agents/add-agent/add-agent.component';
 import { EditAgentComponent } from './screens/agents/edit-agent/edit-agent.component';
+import { ReportComponent } from './screens/report/report.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
         path: 'places/edit',
         component: EditPlacesComponent,
         // canActivate: [authGuard],
+      },
+      {
+        path: 'report',
+        component: ReportComponent,
       },
       {
         path: 'schedules',
